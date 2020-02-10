@@ -11,8 +11,14 @@ export class addfriend extends Component {
         return (
             <div>
                 <Container>
-                   <Form>
-                       <FormGroup>
+
+                <Modal isOpen={showEdit} toggle={toggle}>
+                    <ModalHeader toggle={toggle}>
+                        Add Friend
+                    </ModalHeader>
+                    <ModalBody>
+                        <Form onSubmit={this.handleSubmit}>
+                        <FormGroup>
                        <Label for='firstName'>First Name</Label>
                         <Input type='text' name='firstName' id='firstName'
                             value={this.state.firstName} onChange={this.handleChange} />
@@ -27,9 +33,12 @@ export class addfriend extends Component {
                         <Input type='text' name='phoneNumber' id='phonenumber'
                             value={this.state.lastName} onChange={this.handleChange} />  
                        </FormGroup>
-
-
-                   </Form>
+                        </Form>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color='primary' onClick={this.handleSubmit}>Save</Button>
+                    </ModalFooter>
+                </Modal>
                 </Container>
             </div>
         )

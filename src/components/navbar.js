@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink } from 'reactstrap';
+import { Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink, Button } from 'reactstrap';
 
 const Example = (props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -18,8 +18,9 @@ const Example = (props) => {
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem header>Header</DropdownItem>
-            <DropdownItem disabled>Action</DropdownItem>
-            <DropdownItem>Another Action</DropdownItem>
+            <DropdownItem disabled>Home</DropdownItem>
+            <DropdownItem>Add Friend
+            <Button name='' onChange={this.handleChange></Button></DropdownItem>
             <DropdownItem divider />
             <DropdownItem>Another Action</DropdownItem>
           </DropdownMenu>
@@ -28,10 +29,10 @@ const Example = (props) => {
           <NavLink href="#">Link</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#">Another Link</NavLink>
+          <NavLink href="#">Add Friend</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink disabled href="#">Disabled Link</NavLink>
+          <NavLink disabled href="#">Home</NavLink>
         </NavItem>
       </Nav>
     </div>
