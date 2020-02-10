@@ -13,6 +13,7 @@ export class Dashboard extends Component {
             <div>
                  <Container fluid className='col-md-12'>
                     <div className='col-md-4 jumbotron' >This is freind list</div>
+                    
                     <div className='col-md-8 jumbotron'>This is message view</div>
                 </Container>
             </div>
