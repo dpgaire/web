@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.addform{
+  width: 500px;
+  margin-left: 30%;
+}
+
+.btnaddfriend{
+  width: 150px;
+  margin-left: 150px;
+  margin-top: 20px;
+}
+
+.input{
+  width: 100%;
+}
+
+.title{
+  text-align: center;
+}

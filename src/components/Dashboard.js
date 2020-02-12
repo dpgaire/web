@@ -1,13 +1,33 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import axios from 'axios'
 import{Container, Navbar} from 'reactstrap'
 import NavBar from './NavBar'
-import friendlist from './friendlist'
+
 
 export class Dashboard extends Component {
-    static propTypes = {
+    
+        constructor(props) {
+            super(props)
+        
+            this.state = {
+                 friend:{},
+            }
+        }
+        
+    
+    componentDidMount(){
+        axios.get(`http://localhost:3008/addfriend`, this.state)
+        .then((response) => {
+            console.log(response.data)
+        
+            this.setState({
+                friend:response.data,
+            })
+           
+        }).catch((err) => console.log(err));
+}
 
-    }
+    
 
     render() {
         return (

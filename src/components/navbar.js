@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink, Button } from 'reactstrap';
 
-const Example = (props) => {
+const NavBar = (props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setDropdownOpen(!dropdownOpen);
@@ -12,24 +12,11 @@ const Example = (props) => {
         <NavItem>
           <NavLink href="#" active>Link</NavLink>
         </NavItem>
-        <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
-          <DropdownToggle nav caret>
-            Dropdown
-          </DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem header>Header</DropdownItem>
-            <DropdownItem disabled>Home</DropdownItem>
-            <DropdownItem>Add Friend
-            <Button name='' onChange={this.handleChange></Button></DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>Another Action</DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
         <NavItem>
           <NavLink href="#">Link</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#">Add Friend</NavLink>
+          <NavLink href="/Addfriend">Add Friend</NavLink>
         </NavItem>
         <NavItem>
           <NavLink disabled href="#">Home</NavLink>
@@ -39,4 +26,4 @@ const Example = (props) => {
   );
 }
 
-export default Example;
+export default NavBar;

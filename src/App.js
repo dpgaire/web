@@ -4,18 +4,22 @@ import Login from './components/Login';
 import Register from './components/Register';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
-import PrivateRoute from './components/PrivateRoute'
+import AddFriend from './components/Addfriend';
+import PrivateRoute from './components/PrivateRoute';
 
 
 function App() {
   return (
     <BrowserRouter>
-      <Route path="/" component={Login}/>
-      <Route path="/register" component={Register}/>
+      <Route exact path="/" component={Login}/>
+      <Route path="/Register" component={Register}/>
       <PrivateRoute path="/Dashboard" component={Dashboard}/>
+      <PrivateRoute path="/Addfriend" component={AddFriend}></PrivateRoute>
     </BrowserRouter>
 
   );
+
+  
 }
 
 export default App;
