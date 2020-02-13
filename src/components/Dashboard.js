@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import{Container, Navbar} from 'reactstrap'
+import{Container, Table,
+    Navbar} from 'reactstrap'
 import NavBar from './NavBar'
 
 
@@ -10,37 +11,65 @@ export class Dashboard extends Component {
             super(props)
         
             this.state = {
-                 friend:{},
+                friends:[],
+                config: {
+                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+                },
+                
             }
         }
         
     
     componentDidMount(){
-        axios.get(`http://localhost:3008/addfriend`, this.state)
+        axios.get('http://localhost:3008/addfriend')
         .then((response) => {
             console.log(response.data)
-        
             this.setState({
-                friend:response.data,
+                friends:response.data,
             })
-           
         }).catch((err) => console.log(err));
 }
 
     
 
-    render() {
-        return (
-            <div>
-            <NavBar/>
-                 <Container fluid className='col-md-12'>
-                    <div className='col-md-4 jumbotron' >This is freind list</div>
-
-                    <div className='col-md-8 jumbotron'>This is message view</div>
-                </Container>
+    render(){
+return(
+<div>
+            <div><NavBar/>
+          <div style={{ margin:'20px'}}>
+          <Table striped bordered hover size="2sm">
+                  
+                  <thead>
+                    <tr>
                 
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Phone Number</th>
+                    </tr>
+                  </thead>
+                <tbody>
+                {
+                    this.state.friends.map((friend)=> {
+                        return<tr>
+                
+                      <td>{friend.firstName}</td>
+                      <td>{friend.lastName}</td>
+                      <td>{friend.phoneNumber}</td>
+                    </tr>
+                
+                    })
+                  }
+                </tbody>
+                
+                </Table>
+ </div>
+
             </div>
-        )
+            </div>
+)
+        
+    
+        
     }
 }
 
