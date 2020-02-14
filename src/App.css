@@ -55,3 +55,43 @@
 .title{
   text-align: center;
 }
+.btnSend{
+  margin-left: 20px;
+  width: 100px;
+  height: 43px;
+  margin-bottom: 10px;
+}
+.messageForm{
+  margin-left: 200px;
+  margin-top: 20px;
+  background-color: cadetblue;
+  height: 500px;
+  width: 700px;
+  border: 1px solid blue;
+}
+.typeMessage{
+  margin-left: 0px;
+  margin-top: 390px;
+  height: 40px;
+  width: 80%;
+}
+.yourMessage{
+  margin-left: 60%;
+  
+}
+.title{
+  margin-left: 80px;
+}
+.view-profile{
+  margin-left: 300px;
+  margin-top: 50px;
+  background-color:cornsilk;
+  height: 500px;
+  width: 700px;
+  border: 1px solid blue;
+  
+}
+.first-name{
+  margin-left: 280px;
+  margin-top: 20px;
+}

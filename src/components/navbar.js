@@ -10,10 +10,10 @@ const NavBar = (props) => {
     <div>
       <Nav tabs>
         <NavItem>
-          <NavLink href="#" active>Link</NavLink>
+          <NavLink href="/Message" active>Message</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#">Link</NavLink>
+          <NavLink href="/Profile">UserProfile</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="/Addfriend">Add Friend</NavLink>
