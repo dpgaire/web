@@ -26,7 +26,7 @@ handleChange=(event)=>{
 
 handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(`http://localhost:3008/addfriend`, this.state)
+    axios.post(`http://localhost:3002/addfriend`, this.state)
         .then((response) => {
             console.log(response.data)
         

@@ -22,8 +22,11 @@ export default class Login extends Component {
     }
 
     handleClick = (e) => {
+        const config = {
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token')}
+        }
         e.preventDefault();
-        axios.post('http://localhost:3008/user/login', this.state)
+        axios.post('http://localhost:3002/user/login', this.state,config)
             .then((response) => {
                 console.log(response)
                 localStorage.setItem('token', response.data.token)
@@ -33,7 +36,6 @@ export default class Login extends Component {
                     password: '',
                     isLoggedIn: true
                 })
-
             })
     }
 

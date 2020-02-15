@@ -21,7 +21,7 @@ export class Dashboard extends Component {
         
     
     componentDidMount(){
-        axios.get('http://localhost:3008/addfriend')
+        axios.get('http://localhost:3002/addfriend')
         .then((response) => {
             console.log(response.data)
             this.setState({

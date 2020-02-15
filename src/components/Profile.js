@@ -1,32 +1,58 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Container, Label,Form, Button } from 'reactstrap'
+import Axios from 'axios'
+import { Link, Redirect } from 'react-router-dom'
+import { Container, Label,Form, Button,input } from 'reactstrap'
 
-export class Profile extends Component {
+export default class Profile extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-             
+             users:{},
+             config: {
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+            },
         }
+    }
+    handleChange = (e) => {
+        this.setState({
+            text: e.target.value
+        })
+    }
+
+    componentDidMount(){
+        Axios.get('http://localhost:3002/user/me',this.state.config)
+        .then((response) => {
+            //console.log(response.data)
+            //localStorage.setItem('token',response.data.token)
+            this.setState({
+                users:response.data,
+            }) 
+        }).catch((err) => console.log(err))
+
     }
     
 
     render() {
         return (
             <div>
-                <Container>
+
                     <Form className="view-profile">
-                        <Label className="first-name">First Name</Label><br></br>
-                        <Label className="first-name">Last Name</Label><br></br>
-                        <Label className="first-name">Address</Label><br></br>
-                        <Label className="first-name">Username</Label><br></br>
-                        <Button className="first-name">Update profile</Button>
-                    </Form>
-                </Container>
+                    <h1>User Profile</h1>
+                        <input type="text" className="first-name" 
+                        value={this.state.users.firstName} 
+                        onChange={this.handleChange}></input><br></br>
+
+                        <input type="text" className="first-name" 
+                        value={this.state.users.lastName} 
+                        onChange={this.handleChange}></input><br></br>
+
+                        <input type="text" className="first-name" value={this.state.users.address}></input><br></br>
+                        <input type="text" className="first-name" value={this.state.users.username}></input><br></br>
+                        <Button className="btnUpdate"><Link to='/UpdateProfile'></Link>Update profile</Button>
+                    </Form>               
             </div>
         )
     }
 }
 
-export default Profile
