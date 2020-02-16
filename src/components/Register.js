@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Form, FormGroup, Label, Input, Button, FormText } from 'reactstrap'
+import { Container, Form, FormGroup, Label, Input, Button, FormText,FormFeedback } from 'reactstrap'
 import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 export default class Register extends Component {
@@ -53,6 +53,12 @@ export default class Register extends Component {
                         <Label for='lastName'>Last Name</Label>
                         <Input type='text' name='lastName' id='lastName'
                             value={this.state.lastName} onChange={this.handleChange} />
+                    </FormGroup>
+                    <FormGroup>
+                    <Label for="examplePassword">Invalid input</Label>
+                    <Input invalid />
+                    <FormFeedback tooltip>Oh noes! that name is already taken</FormFeedback>
+                    <FormText>Example help text that remains unchanged.</FormText>
                     </FormGroup>
                     <FormGroup>
                         <Label for='username'>Username</Label>

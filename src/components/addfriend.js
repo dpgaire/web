@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios' 
 import App from '../App.css'
-import { Container, FormGroup, Button,Form } from 'reactstrap'
+import { Container, FormGroup, Button,Form ,Label, Input,  FormText,FormFeedback} from 'reactstrap'
 import { Redirect } from 'react-router-dom'
 
 export class addfriend extends Component {
@@ -51,22 +51,22 @@ handleSubmit = (event) => {
                 <Container className=" jumbotron">
                    <Form className="addform">
                    <h1 className="title">Add friend</h1><hr />
+                   <FormGroup>
+                            <Label for="exampleEmail">First Name:</Label>
+                            <Input type="text" name='firstName' placeholder="Enter First name" 
+                            value={this.state.firstName} onChange={this.handleChange} />          
+                        </FormGroup>
                        <FormGroup>
-                           <label htmlFor="firstname">FirstName:</label><br />
-                           <input type='text' name='firstName' placeholder="Enter first name" className="input"
-                           value={this.state.firstName} onChange={this.handleChange} />
-                       </FormGroup>
-                       <FormGroup>
-                           <label >LastName:</label><br />
-                           <input type='text' name='lastName' placeholder="Enter last name"  className="input"
-                           value={this.state.lastName} onChange={this.handleChange} />
-                       </FormGroup>
-                       <FormGroup>
-                           <label >Phonenumber:</label><br />
-                           <input type='text' name='phoneNumber' placeholder="Enter phoneNumber"  className="input"
-                           value={this.state.phoneNumber} onChange={this.handleChange} />
-                       </FormGroup>
-                        <Button color='warning' onClick={this.handleSubmit} className="btnaddfriend">Add Friend</Button>
+                            <Label for="exampleEmail">Last Name:</Label>
+                            <Input type="text" name='lastName' placeholder="Enter last name" 
+                            value={this.state.lastName} onChange={this.handleChange} />          
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="exampleEmail">Phonenumber:</Label>
+                            <Input type="text" name='phoneNumber' placeholder="Enter phoneNumber" 
+                            value={this.state.phoneNumber} onChange={this.handleChange} />          
+                        </FormGroup>
+                        <Button color='warning' onClick={this.handleSubmit}  block>Add Friend</Button>
                    </Form>
                 </Container>
             </div>
