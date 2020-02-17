@@ -10,6 +10,7 @@ export default class Register extends Component {
         this.state = {
             firstName: '',
             lastName: '',
+            address:'',
             username: '',
             password: ''
         }
@@ -23,13 +24,16 @@ export default class Register extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:3008/user/signup', this.state)
+        
+        axios.post('http://localhost:3002/user/signup', this.state)
             .then((response) => {
                 console.log(response)
+                alert("Register sucessful")
                 localStorage.setItem('token', response.data.token);
                 this.setState({
                     firstName: '',
                     lastName: '',
+                    address:'',
                     username: '',
                     password: ''
                 })
@@ -37,9 +41,9 @@ export default class Register extends Component {
     }
 
     render() {
-        if (localStorage.getItem('token')) {
-            return <Redirect to='/dashboard' />
-        }
+        // if (localStorage.getItem('token')) {
+        //     return <Redirect to='/dashboard' />
+        // }
         return (
             <Container>
                 <h1>Register Form</h1>
@@ -55,10 +59,9 @@ export default class Register extends Component {
                             value={this.state.lastName} onChange={this.handleChange} />
                     </FormGroup>
                     <FormGroup>
-                    <Label for="examplePassword">Invalid input</Label>
-                    <Input invalid />
-                    <FormFeedback tooltip>Oh noes! that name is already taken</FormFeedback>
-                    <FormText>Example help text that remains unchanged.</FormText>
+                        <Label for='address'>Address</Label>
+                        <Input type='text' name='address' id='address'
+                            value={this.state.address} onChange={this.handleChange} />
                     </FormGroup>
                     <FormGroup>
                         <Label for='username'>Username</Label>

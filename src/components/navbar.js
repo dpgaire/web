@@ -9,8 +9,12 @@ const NavBar = (props) => {
   return (
     <div>
       <Nav tabs>
+      
+      <NavItem>
+          <NavLink href="#" active>Home</NavLink>
+        </NavItem>
         <NavItem>
-          <NavLink href="/Message" active>Message</NavLink>
+          <NavLink href="/Message" >Message</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="/Profile">UserProfile</NavLink>
@@ -19,7 +23,7 @@ const NavBar = (props) => {
           <NavLink href="/Addfriend">Add Friend</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink disabled href="#">Home</NavLink>
+          <NavLink  href="/Location">Location</NavLink>
         </NavItem>
       </Nav>
     </div>

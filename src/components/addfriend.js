@@ -14,6 +14,9 @@ constructor(props) {
          firstName:' ',
          lastName:'',
          phoneNumber:'',
+         config: {
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+        },
          isclicked:false
     }
  
@@ -25,8 +28,11 @@ handleChange=(event)=>{
 }
 
 handleSubmit = (event) => {
+    const config={
+        headers:{'Authorization': 'Bearer ' + localStorage.getItem('token')}
+    }
     event.preventDefault();
-    axios.post(`http://localhost:3002/addfriend`, this.state)
+    axios.post(`http://localhost:3002/addfriend`, this.state,config)
         .then((response) => {
             console.log(response.data)
         

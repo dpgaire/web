@@ -9,16 +9,18 @@ export default class Profile extends Component {
     
         this.state = {
              users:{},
+             isUpdated:false,
              config: {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             },
         }
     }
-    handleChange = (e) => {
+    handleChange=(e)=> {
         this.setState({
-            text: e.target.value
+            user: { ...this.state.user, [e.target.name]: e.target.value }
         })
     }
+    
 
     componentDidMount(){
         Axios.get('http://localhost:3002/user/me',this.state.config)
@@ -31,25 +33,42 @@ export default class Profile extends Component {
         }).catch((err) => console.log(err))
 
     }
-    
+    handleSubmit = (event) => {
+        event.preventDefault();
+        Axios.put('http://localhost:3002/user/me', this.state.users,this.state.config)
+            .then((response) => {
+                console.log(response)
+                alert("User updated")
+                localStorage.setItem('token', response.data.token);
+                this.setState({
+                    
+                    isUpdated:true
+                })
+            }).catch((err) => console.log(err));
+    }
 
     render() {
+        if(this.state.isUpdated===true){
+            return <Redirect to="/Dashboard"/>
+        }
         return (
             <div>
 
                     <Form className="view-profile">
                     <h1>User Profile</h1>
-                        <input type="text" className="first-name" 
-                        value={this.state.users.firstName} 
+                        <input type="text" className="first-name" name="firstName"placeholder={this.state.users.firstName}
+                        value={this.state.firstName} 
                         onChange={this.handleChange}></input><br></br>
 
-                        <input type="text" className="first-name" 
-                        value={this.state.users.lastName} 
+                        <input type="text" className="first-name" name="lastName"placeholder={this.state.users.lastName}
+                        value={this.state.lastName} 
                         onChange={this.handleChange}></input><br></br>
 
-                        <input type="text" className="first-name" value={this.state.users.address}></input><br></br>
-                        <input type="text" className="first-name" value={this.state.users.username}></input><br></br>
-                        <Button className="btnUpdate"><Link to='/UpdateProfile'></Link>Update profile</Button>
+                        <input type="text" className="first-name" name="address" placeholder={this.state.users.address}
+                        value={this.state.address}></input><br></br>
+                        <input type="text" className="first-name" name="username" placeholder={this.state.users.username}
+                        value={this.state.username}></input><br></br>
+                        <Button className="btnUpdate" onClick={this.handleSubmit}>Update profile</Button>
                     </Form>               
             </div>
         )
