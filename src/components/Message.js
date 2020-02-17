@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Container, Form, FormGroup, Button } from 'reactstrap'
+import { Link, Redirect } from 'react-router-dom'
+import { Container, Form, FormGroup, Button, Jumbotron,FormText } from 'reactstrap'
 import Axios from 'axios'
 
 export class Message extends Component {
@@ -62,9 +63,9 @@ export class Message extends Component {
     render() {
         return (
             <div>
-                <Container ju style={{backgroundColor:'lightgreen'}}>                
+                <Container ju style={{backgroundColor:'lightblue'}}>                
                     <Form >
-                   
+                
                         <FormGroup style={{height:'250px',overflow:'auto'}}>
                                                 
                         <label style={{position:'relative'}}>Friend Message: </label>
@@ -86,8 +87,11 @@ export class Message extends Component {
                         <input type="text" name="message" className="typeMessage" placeholder="Type your message"
                             value={this.state.message} onChange={this.handleChange}></input>
                             <Button onClick={this.message} className="btnSend">Send</Button>
+                            <FormText>Check to? <Link to='/Dashboard'>Back to dashboard</Link> </FormText>
                             </FormGroup>
+                           
                     </Form>
+                    
          
                 </Container>
             </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
-import { Container, Label,Form, Button,input } from 'reactstrap'
+import { Container, Label,Form, Button,input,Jumbotron,FormGroup,Input,FormText } from 'reactstrap'
 
 export default class Profile extends Component {
     constructor(props) {
@@ -53,23 +53,41 @@ export default class Profile extends Component {
         }
         return (
             <div>
-
-                    <Form className="view-profile">
-                    <h1>User Profile</h1>
-                        <input type="text" className="first-name" name="firstName"placeholder={this.state.users.firstName}
+ <Form className="addform">
+                <Jumbotron style={{marginTop:100}}>
+                
+                    <h3 class='offset-4' style={{fontWeight:'bold'}}>Me</h3>
+               
+                <FormGroup colSpan>
+                            <legend>My profile</legend><hr/>
+                            <Label for="exampleEmail">First name</Label>
+                            <Input type="text" name='firstName' placeholder={this.state.users.firstName}
                         value={this.state.firstName} 
-                        onChange={this.handleChange}></input><br></br>
-
-                        <input type="text" className="first-name" name="lastName"placeholder={this.state.users.lastName}
+                        onChange={this.handleChange} />          
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="exampleEmail">Last name</Label>
+                            <Input type="password" name='lastName' placeholder={this.state.users.lastName}
                         value={this.state.lastName} 
-                        onChange={this.handleChange}></input><br></br>
+                        onChange={this.handleChange} />          
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="exampleEmail">address</Label>
+                            <Input type="password" name='address'  placeholder={this.state.users.address}
+                        value={this.state.address}/>          
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="exampleEmail">Username</Label>
+                            <Input type="password" name='username' placeholder={this.state.users.username}
+                        value={this.state.username} />          
+                        </FormGroup>
 
-                        <input type="text" className="first-name" name="address" placeholder={this.state.users.address}
-                        value={this.state.address}></input><br></br>
-                        <input type="text" className="first-name" name="username" placeholder={this.state.users.username}
-                        value={this.state.username}></input><br></br>
-                        <Button className="btnUpdate" onClick={this.handleSubmit}>Update profile</Button>
-                    </Form>               
+                    <Button color='primary' onClick={this.handleSubmit}>Update profile</Button>
+                    <FormText>Check to? <Link to='/Dashboard'>Back to dashboard</Link> </FormText>
+                    </Jumbotron>
+                </Form>
+                
+                    
             </div>
         )
     }
