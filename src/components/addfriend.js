@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios' 
 import App from '../App.css'
 import { Container, FormGroup, Button,Form ,Label, Input,  FormText,FormFeedback} from 'reactstrap'
+import NavBar from './NavBar'
 import { Redirect } from 'react-router-dom'
 
 export class addfriend extends Component {
@@ -53,6 +54,7 @@ handleSubmit = (event) => {
             return<Redirect to="/Dashboard" />
         }
         return (
+            <div><NavBar/>
             <div>
                 <Container className=" jumbotron" style={{marginTop:100,width:800}}>
                    <Form className="addform col-sm-6">
@@ -75,6 +77,7 @@ handleSubmit = (event) => {
                         <Button color='warning' onClick={this.handleSubmit}  block>Add Friend</Button>
                    </Form>
                 </Container>
+            </div>
             </div>
         )
     }

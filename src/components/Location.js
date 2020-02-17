@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import NavBar from './NavBar'
 import { Map, GoogleApiWrapper  } from 'google-maps-react';
+import { Navbar } from 'reactstrap';
 const mapStyles = {
     width: '90%',
     height: '85%',
@@ -11,6 +13,7 @@ export class Location extends Component {
     
     render() {
         return (
+         
             <div >
             <Map className="maps" 
           google={this.props.google}

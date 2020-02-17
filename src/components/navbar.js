@@ -14,7 +14,7 @@ const NavBar = (props) => {
           <NavLink href="#" active>Home</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/Message" >Message</NavLink>
+          <NavLink href="/MessageList" >Message</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="/Profile">MyProfile</NavLink>

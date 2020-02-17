@@ -55,8 +55,6 @@ export default class Profile extends Component {
             <div>
  <Form className="addform">
                 <Jumbotron style={{marginTop:100}}>
-                
-                    <h3 class='offset-4' style={{fontWeight:'bold'}}>Me</h3>
                
                 <FormGroup colSpan>
                             <legend>My profile</legend><hr/>
