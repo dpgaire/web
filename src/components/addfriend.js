@@ -54,9 +54,9 @@ handleSubmit = (event) => {
         }
         return (
             <div>
-                <Container className=" jumbotron">
-                   <Form className="addform">
-                   <h1 className="title">Add friend</h1><hr />
+                <Container className=" jumbotron" style={{marginTop:100,width:800}}>
+                   <Form className="addform col-sm-6">
+                   <h1 className="title" style={{marginRight:70}}>Add friend</h1><hr />
                    <FormGroup>
                             <Label for="exampleEmail">First Name:</Label>
                             <Input type="text" name='firstName' placeholder="Enter First name" 

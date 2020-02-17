@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Form, FormGroup, Label, Input, Button, FormText,FormFeedback } from 'reactstrap'
+import { Container, Form, FormGroup, Label, Input, Button, FormText,FormFeedback, Jumbotron, Col } from 'reactstrap'
 import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 export default class Register extends Component {
@@ -46,8 +46,11 @@ export default class Register extends Component {
         // }
         return (
             <Container>
-                <h1>Register Form</h1>
+               
                 <Form>
+                <Jumbotron>
+                <legend style={{textAlign:'center'}}>Register Form</legend><hr></hr>
+                    <div className='col-sm-6 offset-3' >
                     <FormGroup>
                         <Label for='firstName'>First Name</Label>
                         <Input type='text' name='firstName' id='firstName'
@@ -75,6 +78,8 @@ export default class Register extends Component {
                     </FormGroup>
                     <Button color='primary' onClick={this.handleSubmit}>Register!</Button>
                     <FormText>Already a user. <Link to='/'>Login here!</Link></FormText>
+                   </div>
+                    </Jumbotron>
                 </Form>
             </Container>
         )
