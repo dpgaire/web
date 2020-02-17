@@ -17,7 +17,7 @@ const NavBar = (props) => {
           <NavLink href="/Message" >Message</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/Profile">UserProfile</NavLink>
+          <NavLink href="/Profile">MyProfile</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="/Addfriend">Add Friend</NavLink>

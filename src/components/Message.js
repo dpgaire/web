@@ -38,7 +38,8 @@ export class Message extends Component {
                     message:'', 
                     //messages:filtermessages
                 })
-                alert("friend added!");
+                // alert("friend added!");
+                
             }).catch((err) => console.log(err));
     }
 
@@ -61,28 +62,33 @@ export class Message extends Component {
     render() {
         return (
             <div>
-                <Container>
-                    <h1 className="title">Chating</h1>
-                    
-                <div>
-                    <Form className="messageForm">
-                        <FormGroup>
-                        <label className>Friend Message</label><br></br>
-                        <label className="yourMessage" > 
+                <Container ju style={{backgroundColor:'lightgreen'}}>                
+                    <Form >
+                   
+                        <FormGroup style={{height:'250px',overflow:'auto'}}>
+                                                
+                        <label style={{position:'relative'}}>Friend Message: </label>
+                        <label>Hello DP ! How are you ?</label>
+
+                        
+                        
+                       
                         {this.state.messages.map((mes)=>{
                             return <h4>
-                                <h3>{mes.message}</h3>
+                                <h6>DP:{mes.message}</h6>
                             </h4>
                         })}
                         {this.state.message.message}
-                        
-                        </label><br></br>
-                            <input type="text" name="message" className="typeMessage" placeholder="Type your message"
+                    
+                            
+                        </FormGroup>
+                        <FormGroup style={{marginBottom:300}}>
+                        <input type="text" name="message" className="typeMessage" placeholder="Type your message"
                             value={this.state.message} onChange={this.handleChange}></input>
                             <Button onClick={this.message} className="btnSend">Send</Button>
-                        </FormGroup>
+                            </FormGroup>
                     </Form>
-                </div>
+         
                 </Container>
             </div>
         )

@@ -4,6 +4,7 @@ import{Container, Table,
     Navbar,
     Button} from 'reactstrap'
 import NavBar from './NavBar'
+import { Link } from 'react-router-dom'
 
 
 export class Dashboard extends Component {
@@ -61,8 +62,10 @@ handledelete=(friendId)=>{
 return(
 <div>
             <div><NavBar/>
-          <div style={{ margin:'20px'}}>
-          <Table striped bordered hover size="2sm">
+            <h3 class='offset-4' style={{fontWeight:'bold'},{marginTop:'60px'}}>FriendList</h3>
+          <div className="col-sm-8 offset-10" style={{ margin:'20px'}}>
+          
+          <Table  striped bordered hover size="9sm" style={{textAlign:"center"}}>
                   
                   <thead>
                     <tr>
@@ -70,7 +73,7 @@ return(
                       <th>First Name</th>
                       <th>Last Name</th>
                       <th>Phone Number</th>
-                      <th>Delete</th>
+                      <th colSpan='3'>Actions</th>
                     </tr>
                   </thead>
                 <tbody>
@@ -81,7 +84,10 @@ return(
                       <td>{friend.firstName}</td>
                       <td>{friend.lastName}</td>
                       <td>{friend.phoneNumber}</td>
-                      <td><Button btn-danger onClick={()=>this.handledelete(friend._id)}>Delete</Button></td>
+                      <td><Button href="/Location">Find!!</Button></td>
+                      <td><Button href="/Message">Chat!!</Button></td>
+                      <td><Button btn-danger onClick={()=>this.handledelete(friend._id)}>Delete!!</Button></td>
+
                     </tr>
                 
                     })
